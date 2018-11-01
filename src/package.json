@@ -1,0 +1,27 @@
+{
+  "name": "medicator",
+  "version": "0.1.0",
+  "description": "Medication guidance for out-patients and self-medicators",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenSturley/medicator.git"
+  },
+  "keywords": [
+    "medication",
+    "prescription",
+    "medicator"
+  ],
+  "author": "Ben Sturley <bensturley@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BenSturley/medicator/issues"
+  },
+  "homepage": "https://github.com/BenSturley/medicator#readme",
+  "dependencies": {
+    "eslint": "^5.8.0"
+  }
+}

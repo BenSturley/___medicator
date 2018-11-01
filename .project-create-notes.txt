@@ -1,0 +1,47 @@
+git repo uri:		https://github.com/BenSturley/medicator.git
+
+
+
+
+    ## New Projects 
+    ~~~~~~~~~~~~~~~
+
+     1.     create github repo
+     2.     get github repo url
+     3.     change to project parent directory 
+     4.     $ git clone <github-repo-url>
+     5.     $ cd <project-directory>
+     6.     $ mkdir ./src/
+     7.     $ cd ./src/
+     8.     $ npm init
+     9.     $ npm install eslint
+     9.     $ cp <path-to-.eslint.js>
+
+
+
+    ## -- directories -- ##
+     1. create project directory ~/
+     2. create project directory ~/src/
+     3. cd to ~/src/
+
+    ## -- npm -- ##
+     4. npm init
+         (then answer questions)
+          or
+        npm init -y
+     5. touch {app.js|index.js}
+
+  ## -- git -- ##
+     6. git init		(only if not crated repo thru gibhub.com w/site)
+
+  ## -- eslint -- ##
+     7. npm install eslint
+     8. copy .eslint.js to ~/src/
+     9. in ~/src/: $ echo node_modules/ >> .gitignore
+     
+  ## -- vscode -- ##
+    10. create vscode launch config (~/src/.vscode/launch.json)
+    11. create vscode eslint config (~/src/.vscode/settings.json)
+	
+	
+	
