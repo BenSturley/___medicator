@@ -5,16 +5,19 @@ const log = require('../log/log');
 // const config = require('../config');
 const globals = require('../globals');
 
-const root_puller_fn = () => {
+const root_puller_fn = async () => {
     
-    // get schema
-    const schema_getter = require('./medicates-pull/get_schema');
-    const schema = schema_getter.schema;
+    // // get schema
+    // const schema_getter = require('./medicates-pull/get_schema');
+    // const schema = schema_getter.schema;
+    
+    // // get model
+    // const model_getter = require('./medicates-pull/get_model');
+    // const model = model_getter.get_model(schema);
     
     // get model
-    const model_getter = require('./medicates-pull/get_model');
-    const model = model_getter.get_model(schema);
-    
+    const model = require('./medicates-pull/get_model');
+
     // connect
     const connecter = require('./mongoose_connecter');
     connecter.connect();
@@ -29,16 +32,16 @@ const root_puller_fn = () => {
     // this is experimental!
     //
     let recordsPromise = null;
-    model
-        .fimd()
+    const q = model
+        .find( {} );
         //.where('drug_name').equals('diacetylmorphine')
         //.where('butt-size').gt(11).lt(40)
         //.limit(1000)
-        .sort({ dose_datetime: -1 })
-        .select( 
+        q.sort({ dose_datetime: -1 });
+        q.select( 
             'drug_name dose_size dose_datetime lastModified notes _id' 
-            )
-        .exec(
+            );
+    await q.exec(
             function(err, recs) {
                 recordsPromise = new Promise(
                     (resolve, reject) => {
@@ -53,7 +56,7 @@ const root_puller_fn = () => {
                 );
             }
         );
-    
+
     // get results
     let records = null;
     recordsPromise
@@ -71,6 +74,11 @@ const root_puller_fn = () => {
     
     // convert data
     const data = records;
+
+    // disconnect
+    require('./mongoose_disconnecter').disconnect();
+
+    // return the data
     return data;
 };
 

@@ -12,8 +12,11 @@ const config = function() {
 
         //
         // pre-dist
-        PRE_save_records:       true, 
+        PRE_sandbox:            false, 
+        PRE_save_records:       false, 
         PRE_load_records:       true, 
+        PRE_delete_records:     false,
+        PRE_drop_db:            false,
 
         // 
         // app
@@ -30,7 +33,8 @@ const config = function() {
         // tests
         TESTS_run_init:         true,
 
-    }
+    };
 };
 
 module.exports = config();
+                                                                                                                                                                                                     

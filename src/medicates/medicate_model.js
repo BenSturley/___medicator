@@ -1,19 +1,12 @@
 // 
 //  medicate_model.js
 // 
-const getter_fn = function( schema ) {
+const schema = require('./medicates-pull/get_schema');
+const gen_fn = require('./medicate_model_gen');
+const model = gen_fn.get_model(schema);
 
-    if ( schema === undefined ) {
-        throw new ReferenceError(
-            'Mongoose schema is required to generate model.'
-            );
-    }
-    
-    const mongoose = require('mongoose');
-    const model = mongoose.Model('Medicate', schema)
-    return model;
-};
+module.exports = model;
 
-module.exports = {
-    get_model:  getter_fn
-};
+// module.exports = {
+//     get_model:  getter_fn
+// };
